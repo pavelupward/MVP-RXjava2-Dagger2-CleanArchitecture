@@ -38,7 +38,7 @@ public class PresenterMainActivity implements IPresenterMainActivity {
      */
     @Override
     public void onLoadList() {
-        if (NetworkUtils.isNetworkAvailable()) {
+        if (NetworkUtils.INSTANCE.isNetworkAvailable()) {
             interactorNetwork.getRezult().subscribeOn(rxSchedulers.io())
                     .observeOn(rxSchedulers.androidThread()).subscribe(lists -> {
                 iViewMainActivity.showList(lists);
